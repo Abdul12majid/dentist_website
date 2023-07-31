@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block message %}
+
+{{ message }}
+
+{% endblock %}
+
+
+{% block content %}</br>
+
+
+{% if user.is_authenticated %}
+</br></br>
+
+<center>
+
+<h1 class="text-black mb-4">Make Appointment</h1></br></br>
+
+<form action="{% url 'appointment' %}" method="POST">
+
+  {% csrf_token %}
+  {{ form.as_p }}
+
+   </br>
+   
+<div class="col-4">
+   <button class="btn btn-dark w-100 py-3" type="submit">Make Appointment</button>
+</div></br>
+  
+
+</form>
+
+{% else %}
+
+
+
+{% endif %}
+
+</center>
+
+{% endblock %}
